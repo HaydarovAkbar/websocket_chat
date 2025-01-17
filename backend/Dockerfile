@@ -15,3 +15,4 @@ RUN pip install channels-redis
 EXPOSE 7000
 
 CMD ["daphne", "-b", "0.0.0.0", "-p", "7000", "config.asgi:application"]
+CMD ["python", "manage.py", "runserver", "8000"]

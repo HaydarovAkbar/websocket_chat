@@ -40,3 +40,17 @@ class Message(models.Model):
     class Meta:
         ordering = ['created_at']
         db_table = 'message'
+
+
+class Room(models.Model):
+    name = models.CharField(max_length=100)
+    members = models.ManyToManyField('auth.User', related_name='rooms')
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    update_at = models.DateTimeField(auto_now=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'room'
