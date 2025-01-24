@@ -3,12 +3,12 @@ FROM python:3.9-slim
 WORKDIR /backend
 
 COPY . .
-#COPY ./requirements/requirements.txt .
-#RUN pip install -r requirements.txt
-RUN pip install daphne
-RUN pip install django
-RUN pip install channels
-RUN pip install channels-redis
+COPY .requirements.txt .
+RUN pip install -r requirements.txt
+#RUN pip install daphne
+#RUN pip install django
+#RUN pip install channels
+#RUN pip install channels-redis
 
 
 
